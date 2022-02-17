@@ -30,13 +30,13 @@ class BernoulliBandit(Bandit):
             
             self.util = [((self.probas[_] * self.arms_reward[_]) - ((1 - self.probas[_]) * self.arms_cost[_])) for _ in range(self.n) ]
             
+            self.random_values = [np.random.random() for x in range(self.num_of_steps)]
             
         else:
             self.probas = probas
 
         self.best_proba = max(self.util)
         
-        self.random_values = [np.random.random() for x in range(0,5000)]
 
     def generate_reward(self, i, time):
         # The player selected the i-th machine.
